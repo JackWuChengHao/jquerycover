@@ -1,0 +1,31 @@
+* { 
+	margin: 0; 
+	padding: 0; 
+  }
+
+.quickcovercontainer  {  
+	position: relative; 
+	overflow: hidden; 
+	}
+
+.quickcovercontainer  .quickcover {  
+	background: rgba(192, 192, 192, 0.3); 
+	position: absolute; left: 0; top: 0; 
+	text-align: center; 
+	color: #ffffff; 
+	transform-origin: right bottom; 
+	-webkit-transform-origin: right bottom; 
+	-moz-transform-origin: right bottom; 
+	transform: rotate(90deg); 
+	-webkit-transform: rotate(90deg); 
+	-moz-transform: rotate(90deg); 
+	transition: all 0.35s; 
+	-webkit-transition: all 0.35s; 
+	-moz-transition: all 0.35s; 
+	}
+
+.quickcovercontainer:hover .quickcover {
+	transform: rotate(0deg); 
+	-webkit-transform: rotate(0deg); 
+	-moz-transform: rotate(0deg); 
+	}
