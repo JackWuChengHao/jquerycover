@@ -1,5 +1,6 @@
 /**
  * 快速创建蒙层
+ * 由JackWuChengHao创建
  * 
  */
 (function( $ ){
