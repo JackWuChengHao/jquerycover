@@ -73,8 +73,8 @@
 		var results = [];
 		
 		this.each(function(arg1,arg2,arg3){
-
-			results.push(new quickCover(this));
+			
+			results.push(new quickCover(this,this.data("options")));
 
 		});
 		
