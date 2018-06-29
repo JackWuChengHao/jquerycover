@@ -104,7 +104,9 @@
 
 	};
 
-
+	/**
+	 * 默认初始化
+	 */
 	$(function() {
 		$("input[data-role=quickcover]").quickcover();
 	});
