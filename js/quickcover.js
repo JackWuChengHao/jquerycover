@@ -82,17 +82,15 @@
 		
 		var results = [];
 		
-		
 		this.each(function(arg1,arg2,arg3){
 	
 			if(typeof($(this).attr("id")) == "undefined"){
-//				$(this).data("options").id = null;
-//				console.log("yes");
+
 			}else{
-				console.log("no");
-				$(this).data("options").id = $(this).attr("id");
+				
+				var options = $.extend({},{id:$(this).attr("id")},$(this).data("options"));
 			}
-			results.push(new quickCover(this,$(this).data("options")));
+			results.push(new quickCover(this,options));
 			
 		});
 		
