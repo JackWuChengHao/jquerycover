@@ -40,7 +40,20 @@
 			
 		$.cover.appendTo($.container);
 		
-		this.overwrite(options);
+		
+		if(typeof($(element).attr("id")) == "undefined"){
+				
+		}else{
+			
+			 options = $.extend({},{id:$(element).attr("id")},$(element).data("options"));
+			
+		}
+		
+		this.options = {};
+		
+		this.options = options;
+		
+		this.overwrite(this.options);
 
 	};
 	
@@ -60,8 +73,8 @@
 				}
 			},
 			overwrite:function(options){
-				var self = this,
-				options = $.extend({},defaultOptions,options);
+				var self = this;
+				var options = $.extend({},defaultOptions,self.options,options);
 				self.clear(options.id);
 				self.writecontent(options.id,options.covercontent);
 			},
@@ -84,13 +97,7 @@
 		
 		this.each(function(arg1,arg2,arg3){
 	
-			if(typeof($(this).attr("id")) == "undefined"){
-
-			}else{
-				
-				var options = $.extend({},{id:$(this).attr("id")},$(this).data("options"));
-			}
-			results.push(new quickCover(this,options));
+			results.push(new quickCover(this));
 			
 		});
 		
