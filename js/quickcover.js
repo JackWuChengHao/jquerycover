@@ -14,22 +14,23 @@
 	
 	
 	defaultOptions = {
-		
+	
 		covercontent: "<h4>quickcover</h4>",
-		
+		id:null
+
 	}
 
 	/**
 	 * quickcover的构造函数
 	 */
 	quickCover = function(element,options){
-
+		
 		$.element = $(element);
 
 		$.container = $.element.prev();
 
 		$.container.addClass("quickcovercontainer");
-
+		
 		$.container.height =  $.container.height();
 
 		$.container.width = $.container.width();
@@ -49,20 +50,29 @@
 	 */
 	quickCover.prototype = {
 			constructor: quickCover,
-			writecontent:function(content){
+			writecontent:function(id,content){
 				var self = this;
-				$(".quickcover",self.prev).html(content);
+				if(id){
+					var inid = "#"+id;
+					$(".quickcover",$(inid).prev()).html(content);
+				}else{
+					$(".quickcover").html(content);
+				}
 			},
 			overwrite:function(options){
 				var self = this,
 				options = $.extend({},defaultOptions,options);
-				console.log(options.covercontent);
-				self.clear();
-				self.writecontent(options.covercontent);
+				self.clear(options.id);
+				self.writecontent(options.id,options.covercontent);
 			},
-			clear:function(){
+			clear:function(id){
 				var self = this;
-				$(".quickcover",self.prev).html(defaultOptions.covercontent);
+				if(id){
+				var inid = "#"+id;
+				$(".quickcover",$(inid).prev()).html(defaultOptions.covercontent);
+				}else{
+					$(".quickcover").html("");
+				}
 			}
 
 	}
@@ -72,8 +82,18 @@
 		
 		var results = [];
 		
+		
 		this.each(function(arg1,arg2,arg3){
+	
+			if(typeof($(this).attr("id")) == "undefined"){
+//				$(this).data("options").id = null;
+//				console.log("yes");
+			}else{
+				console.log("no");
+				$(this).data("options").id = $(this).attr("id");
+			}
 			results.push(new quickCover(this,$(this).data("options")));
+			
 		});
 		
 		if(results.length === 1){
