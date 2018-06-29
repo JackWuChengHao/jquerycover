@@ -1,3 +1,7 @@
+/**
+*此处样式借鉴了网上了一段代码，parent需要设置element为position: relative; 其中的溢出子元素才会overflow: hidden; 
+*不然子元素为position: absolute;是不会隐藏的。
+*/
 * { 
 	margin: 0; 
 	padding: 0; 
